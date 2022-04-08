@@ -1,0 +1,77 @@
+{
+    "name": "worksome/translator",
+    "description": "A driver-based translation package for Laravel",
+    "keywords": [
+        "worksome",
+        "laravel",
+        "translator"
+    ],
+    "homepage": "https://github.com/worksome/translator",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Owen Voke",
+            "email": "owen.voke@worksome.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.0|^8.1",
+        "illuminate/support": "^8.83",
+        "spatie/laravel-package-tools": "^1.11.3"
+    },
+    "require-dev": {
+        "guzzlehttp/guzzle": "^7.4",
+        "nunomaduro/collision": "^5.11",
+        "nunomaduro/larastan": "^1.0.3 || ^2.0",
+        "orchestra/testbench": "^6.24",
+        "pestphp/pest": "^1.21",
+        "pestphp/pest-plugin-laravel": "^1.2",
+        "pestphp/pest-plugin-parallel": "^1.0",
+        "spatie/laravel-ray": "^1.29",
+        "worksome/coding-style": "0.14.0",
+        "worksome/pest-plugin-silence": "^0.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Worksome\\Translator\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Worksome\\Translator\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "lint": "vendor/bin/phpcbf",
+        "test:unit": "vendor/bin/pest -p",
+        "test:coverage": "vendor/bin/pest -p --coverage",
+        "test:types": "vendor/bin/phpstan analyse",
+        "test:style": "vendor/bin/phpcs -n",
+        "test": [
+            "@test:style",
+            "@test:types",
+            "@test:unit"
+        ]
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "worksome/coding-style": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Worksome\\Translator\\TranslatorServiceProvider"
+            ],
+            "aliases": {
+                "Translator": "Worksome\\Translator\\Facades\\Translator"
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
