@@ -15,6 +15,29 @@ You can install the package via composer:
 composer require worksome/translator
 ```
 
+You can publish the config file with:
+
+```bash
+php artisan vendor:publish --tag="translator-config"
+```
+
+## Usage
+
+```php
+$translator = new Worksome\Translator\TranslationManager();
+
+$translator->driver('google_cloud_translate')->translate('Text to translate'); // TranslationDTO
+$translator->driver('google_cloud_translate')->detectLanguage('Text to detect'); // DetectedLanguageDTO
+
+// Via the Facade
+use Worksome\Translator\Facades\Translator;
+
+Translator::translate(''); // Use the default driver
+Translator::driver('google_cloud_translate')->translate(''); // Use a custom driver
+```
+
+Test suites can utilise the [`null` driver](src/Drivers/NullDriver.php), this will always return the same string value as provided for translations.
+
 ## Testing
 
 ```bash
