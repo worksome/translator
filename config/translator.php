@@ -8,7 +8,7 @@ return [
 
     'google_cloud_translate' => [
         'project_id' => env('GOOGLE_CLOUD_TRANSLATE_PROJECT_ID'),
-        'key' => env('GOOGLE_CLOUD_TRANSLATE_KEY'),
+        'key' => env('GOOGLE_CLOUD_TRANSLATE_API_KEY'),
     ],
 
 ];
