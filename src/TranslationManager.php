@@ -29,7 +29,7 @@ class TranslationManager extends Manager implements Factory
     }
 
     /**
-     * Ensure the Algolia API client is installed.
+     * Ensure the Google Cloud Translate client is installed.
      *
      * @return void
      *
