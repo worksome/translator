@@ -8,9 +8,11 @@ use Exception;
 use Google\Cloud\Translate\V2\TranslateClient;
 use Illuminate\Support\Manager;
 use Worksome\Translator\Contracts\Factory;
+use Worksome\Translator\Contracts\TranslationDriver;
 use Worksome\Translator\Drivers\GoogleCloudTranslateDriver;
 use Worksome\Translator\Drivers\NullDriver;
 
+/** @mixin TranslationDriver */
 class TranslationManager extends Manager implements Factory
 {
     /**
