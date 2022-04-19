@@ -26,7 +26,7 @@ it('can translate using the null driver', function () {
 
     expect($provider)
         ->toBeInstanceOf(NullDriver::class)
-        ->translate('This is being translated')
+        ->translate('This is being translated', 'en', 'en')
         ->toBeInstanceOf(TranslationDTO::class)
         ->toEqual(new TranslationDTO(source: 'en', input: 'This is being translated', text: 'This is being translated'));
 });
@@ -46,7 +46,7 @@ it('can detect input language using the null driver', function () {
 it('can use the Translator Facade', function () {
     $this->app['config']->set('translator.driver', null);
 
-    $provider = Translator::translate('This is being translated');
+    $provider = Translator::translate('This is being translated', 'en', 'en');
 
     expect($provider)
         ->toBeInstanceOf(TranslationDTO::class)

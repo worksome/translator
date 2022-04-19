@@ -4,27 +4,25 @@ declare(strict_types=1);
 
 namespace Worksome\Translator\Drivers;
 
-use Worksome\Translator\Contracts\TranslationDriver;
+use Worksome\Translator\Contracts\Translator;
 use Worksome\Translator\DTOs\DetectedLanguageDTO;
 use Worksome\Translator\DTOs\TranslationDTO;
 
-class NullDriver implements TranslationDriver
+class NullDriver implements Translator
 {
-    /** {@inheritdoc} */
-    public function translate(string $string, array $options = []): TranslationDTO
+    public function translate(string $string, string $fromLanguage, string $toLanguage): TranslationDTO
     {
         return new TranslationDTO(
-            source: 'en',
+            source: $fromLanguage,
             input: $string,
             text: $string
         );
     }
 
-    /** {@inheritdoc} */
-    public function detectLanguage(string $string, array $options = []): DetectedLanguageDTO
+    public function detectLanguage(string $string): DetectedLanguageDTO
     {
         return new DetectedLanguageDTO(
-            languageCode: $options['source'] ?? 'en',
+            languageCode: 'en',
             confidence: 1.0,
         );
     }

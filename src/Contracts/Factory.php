@@ -10,7 +10,7 @@ interface Factory
      * Get a Translation driver implementation.
      *
      * @param  string  $driver
-     * @return TranslationDriver
+     * @return Translator
      */
     public function driver($driver = null);
 }

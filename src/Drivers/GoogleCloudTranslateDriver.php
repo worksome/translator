@@ -5,11 +5,11 @@ declare(strict_types=1);
 namespace Worksome\Translator\Drivers;
 
 use Google\Cloud\Translate\V2\TranslateClient;
-use Worksome\Translator\Contracts\TranslationDriver;
+use Worksome\Translator\Contracts\Translator;
 use Worksome\Translator\DTOs\DetectedLanguageDTO;
 use Worksome\Translator\DTOs\TranslationDTO;
 
-class GoogleCloudTranslateDriver implements TranslationDriver
+class GoogleCloudTranslateDriver implements Translator
 {
     protected TranslateClient $client;
 
@@ -21,18 +21,20 @@ class GoogleCloudTranslateDriver implements TranslationDriver
         ]);
     }
 
-    /** {@inheritdoc} */
-    public function translate(string $string, array $options = []): ?TranslationDTO
+    public function translate(string $string, string $fromLanguage, string $toLanguage): ?TranslationDTO
     {
-        return ($response = $this->client->translate($string, $options))
+        return ($response = $this->client->translate($string, [
+            'source' => $fromLanguage,
+            'target' => $toLanguage,
+            'format' => 'text'
+        ]))
             ? TranslationDTO::fromArray($response)
             : null;
     }
 
-    /** {@inheritdoc} */
-    public function detectLanguage(string $string, array $options = []): ?DetectedLanguageDTO
+    public function detectLanguage(string $string): ?DetectedLanguageDTO
     {
-        return ($response = $this->client->detectLanguage($string, $options))
+        return ($response = $this->client->detectLanguage($string))
             ? DetectedLanguageDTO::fromArray($response)
             : null;
     }

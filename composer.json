@@ -17,11 +17,11 @@
     ],
     "require": {
         "php": "^8.0|^8.1",
+        "google/cloud-translate": "^1.12",
         "illuminate/support": "^8.83",
         "spatie/laravel-package-tools": "^1.11.3"
     },
     "require-dev": {
-        "google/cloud-translate": "^1.12",
         "guzzlehttp/guzzle": "^7.4",
         "nunomaduro/collision": "^5.11",
         "nunomaduro/larastan": "^1.0.3 || ^2.0",

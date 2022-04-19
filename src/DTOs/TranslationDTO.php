@@ -19,17 +19,17 @@ class TranslationDTO
         );
     }
 
-    public function getSource(): string
+    public function getSourceLanguageCode(): string
     {
         return $this->source;
     }
 
-    public function getInput(): string
+    public function getInputText(): string
     {
         return $this->input;
     }
 
-    public function getText(): string
+    public function getTranslatedText(): string
     {
         return $this->text;
     }
