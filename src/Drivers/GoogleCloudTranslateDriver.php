@@ -28,14 +28,21 @@ class GoogleCloudTranslateDriver implements Translator
             'target' => $toLanguage,
             'format' => 'text'
         ]))
-            ? TranslationDTO::fromArray($response)
+            ? new TranslationDTO(
+                source: $response['source'],
+                input: $response['input'],
+                text: $response['text']
+            )
             : null;
     }
 
     public function detectLanguage(string $string): ?DetectedLanguageDTO
     {
         return ($response = $this->client->detectLanguage($string))
-            ? DetectedLanguageDTO::fromArray($response)
+            ? new DetectedLanguageDTO(
+                languageCode: $response['languageCode'],
+                confidence: $response['confidence']
+            )
             : null;
     }
 }

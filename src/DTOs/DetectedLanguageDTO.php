@@ -10,14 +10,6 @@ class DetectedLanguageDTO
     {
     }
 
-    public static function fromArray(array $values): DetectedLanguageDTO
-    {
-        return new self(
-            languageCode: $values['languageCode'],
-            confidence: $values['confidence']
-        );
-    }
-
     public function getLanguageCode(): string
     {
         return $this->languageCode;

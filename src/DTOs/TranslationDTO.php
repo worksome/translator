@@ -10,15 +10,6 @@ class TranslationDTO
     {
     }
 
-    public static function fromArray(array $values): TranslationDTO
-    {
-        return new self(
-            $values['source'],
-            $values['input'],
-            $values['text']
-        );
-    }
-
     public function getSourceLanguageCode(): string
     {
         return $this->source;
