@@ -1,0 +1,17 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Method Worksome\\\\Translator\\\\TranslationManager\\:\\:getDefaultDriver\\(\\) should return string but returns mixed\\.$#"
+			count: 1
+			path: src/TranslationManager.php
+
+		-
+			message: "#^Parameter \\#1 \\$projectId of class Worksome\\\\Translator\\\\Drivers\\\\GoogleCloudTranslateDriver constructor expects string\\|null, mixed given\\.$#"
+			count: 1
+			path: src/TranslationManager.php
+
+		-
+			message: "#^Parameter \\#2 \\$key of class Worksome\\\\Translator\\\\Drivers\\\\GoogleCloudTranslateDriver constructor expects string\\|null, mixed given\\.$#"
+			count: 1
+			path: src/TranslationManager.php
+
