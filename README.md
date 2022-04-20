@@ -1,8 +1,8 @@
 # Translator
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/worksome/translator.svg?style=flat-square&label=Packagist)](https://packagist.org/packages/worksome/translator)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/worksome/translator/Tests?label=Tests&style=flat-square)](https://github.com/owenvoke/translator/actions?query=workflow%3ATests)
-[![GitHub PHPStan Action Status](https://img.shields.io/github/workflow/status/worksome/translator/PHPStan?label=PHPStan&style=flat-square)](https://github.com/owenvoke/translator/actions?query=workflow%3APHPStan)
+[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/worksome/translator/Tests?label=Tests&style=flat-square)](https://github.com/worksome/translator/actions?query=workflow%3ATests)
+[![GitHub PHPStan Action Status](https://img.shields.io/github/workflow/status/worksome/translator/PHPStan?label=PHPStan&style=flat-square)](https://github.com/worksome/translator/actions?query=workflow%3APHPStan)
 [![Total Downloads](https://img.shields.io/packagist/dt/worksome/translator.svg?style=flat-square&label=Downloads)](https://packagist.org/packages/worksome/translator)
 
 A driver-based translation package for Laravel.
