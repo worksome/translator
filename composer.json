@@ -30,7 +30,7 @@
         "pestphp/pest-plugin-laravel": "^1.2",
         "pestphp/pest-plugin-parallel": "^1.0",
         "spatie/laravel-ray": "^1.29",
-        "worksome/coding-style": "0.14.0",
+        "worksome/coding-style": "^0.15.0",
         "worksome/pest-plugin-silence": "^0.1"
     },
     "autoload": {
@@ -44,11 +44,17 @@
         }
     },
     "scripts": {
-        "lint": "vendor/bin/phpcbf",
+        "lint": [
+            "vendor/bin/php-cs-fixer fix --ansi",
+            "vendor/bin/phpcbf"
+        ],
         "test:unit": "vendor/bin/pest -p",
         "test:coverage": "vendor/bin/pest -p --coverage",
         "test:types": "vendor/bin/phpstan analyse",
-        "test:style": "vendor/bin/phpcs -n",
+        "test:style": [
+            "vendor/bin/php-cs-fixer fix --dry-run --ansi",
+            "vendor/bin/phpcs -n"
+        ],
         "test": [
             "@test:style",
             "@test:types",
