@@ -10,6 +10,7 @@ use Worksome\Translator\Contracts\Translator as TranslatorContract;
 
 /**
  * @see Factory
+ *
  * @mixin TranslatorContract
  */
 class Translator extends Facade
