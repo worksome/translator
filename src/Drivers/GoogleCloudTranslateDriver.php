@@ -13,7 +13,7 @@ class GoogleCloudTranslateDriver implements Translator
 {
     protected TranslateClient $client;
 
-    public function __construct(?string $projectId, ?string $key)
+    public function __construct(string|null $projectId, string|null $key)
     {
         $this->client = new TranslateClient([
             'projectId' => $projectId,
@@ -21,13 +21,16 @@ class GoogleCloudTranslateDriver implements Translator
         ]);
     }
 
-    public function translate(string $string, string $fromLanguage, string $toLanguage): ?TranslationDTO
+    public function translate(string $string, string $fromLanguage, string $toLanguage): TranslationDTO|null
     {
-        return ($response = $this->client->translate($string, [
+        /** @var array{source: string, input: string, text: string}|null $response */
+        $response = $this->client->translate($string, [
             'source' => $fromLanguage,
             'target' => $toLanguage,
-            'format' => 'text'
-        ]))
+            'format' => 'text',
+        ]);
+
+        return $response
             ? new TranslationDTO(
                 source: $response['source'],
                 input: $response['input'],
@@ -36,9 +39,12 @@ class GoogleCloudTranslateDriver implements Translator
             : null;
     }
 
-    public function detectLanguage(string $string): ?DetectedLanguageDTO
+    public function detectLanguage(string $string): DetectedLanguageDTO|null
     {
-        return ($response = $this->client->detectLanguage($string))
+        /** @var array{languageCode: string, confidence: float}|null $response */
+        $response = $this->client->detectLanguage($string);
+
+        return $response
             ? new DetectedLanguageDTO(
                 languageCode: $response['languageCode'],
                 confidence: $response['confidence']
