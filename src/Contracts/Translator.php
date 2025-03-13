@@ -9,7 +9,7 @@ use Worksome\Translator\DTOs\TranslationDTO;
 
 interface Translator
 {
-    public function translate(string $string, string $fromLanguage, string $toLanguage): ?TranslationDTO;
+    public function translate(string $string, string $fromLanguage, string $toLanguage): TranslationDTO|null;
 
-    public function detectLanguage(string $string): ?DetectedLanguageDTO;
+    public function detectLanguage(string $string): DetectedLanguageDTO|null;
 }
