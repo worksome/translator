@@ -6,8 +6,11 @@ namespace Worksome\Translator\DTOs;
 
 class TranslationDTO
 {
-    public function __construct(private string $source, private string $input, private string $text)
-    {
+    public function __construct(
+        private readonly string $source,
+        private readonly string $input,
+        private readonly string $text,
+    ) {
     }
 
     public function getSourceLanguageCode(): string
