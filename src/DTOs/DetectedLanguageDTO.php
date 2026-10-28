@@ -6,7 +6,7 @@ namespace Worksome\Translator\DTOs;
 
 class DetectedLanguageDTO
 {
-    public function __construct(private string $languageCode, private float $confidence)
+    public function __construct(private readonly string $languageCode, private readonly float $confidence)
     {
     }
 
