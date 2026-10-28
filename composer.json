@@ -17,7 +17,7 @@
     ],
     "require": {
         "php": "^8.4",
-        "google/cloud-translate": "^1.21",
+        "google/cloud-translate": "^2.4",
         "illuminate/support": "^13.0",
         "spatie/laravel-package-tools": "^1.93"
     },
