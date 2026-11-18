@@ -17,6 +17,12 @@ it('can instantiate the Google Cloud Translate driver', function () {
     expect($provider)->toBeInstanceOf(GoogleCloudTranslateDriver::class);
 });
 
+it('requires a project ID for the Google Cloud Translate driver', function () {
+    $this->app['config']->set('translator.google_cloud_translate.project_id', null);
+
+    $this->app->make(Factory::class)->driver('google_cloud_translate');
+})->throws(InvalidArgumentException::class);
+
 it('can translate using the null driver', function () {
     $this->app['config']->set('translator.driver', null);
 
